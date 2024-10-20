@@ -35,7 +35,10 @@ void	init_stack(t_stack *stack, t_data *data)
 	long	number;
 	int		i;
 
-	i = 1;
+	if (data->argc == 2)
+		i = 0;
+	else
+		i = 1;
 	while (data->argv[i])
 	{
 		number = ft_atol(data->argv[i]);
