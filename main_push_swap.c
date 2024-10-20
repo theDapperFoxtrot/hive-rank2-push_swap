@@ -44,5 +44,6 @@ int	main(int argc, char **argv)
     // When done using the stacks, free them
     free_stack(stack_a);
     free_stack(stack_b);
+	error_free_argv(&data);
 	return (0);
 }

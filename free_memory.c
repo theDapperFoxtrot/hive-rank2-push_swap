@@ -19,9 +19,11 @@ void	free_stack(t_stack *stack)
 	{
 		next = current->next;
 		free(current);  // Free the current node
+		current = NULL;
 		current = next;
 	}
 	free(stack);  // Free the stack structure
+	stack = NULL;
 }
 
 void	error_free_argv(t_data *data)
