@@ -1,5 +1,6 @@
-#include <stdio.h>
 #include "push_swap.h"
+
+#include <stdio.h>
 
 void	malloc_check(t_stack *stack_a, t_stack *stack_b, t_data *data)
 {
@@ -32,10 +33,11 @@ int	main(int argc, char **argv)
 	// Initialize the stacks with nodes
 	init_stack(stack_a, &data);
 	// I want to test printing out the stack of integers once they've been added
-	while (stack_a->first_node)
+	t_node *iterator = stack_a->first_node;
+	while (iterator)
 	{
-		printf("%d\n", stack_a->first_node->value);
-		stack_a->first_node = stack_a->first_node->next;
+		printf("%d\n", iterator->value);
+		iterator = iterator->next;
 	}
 
 

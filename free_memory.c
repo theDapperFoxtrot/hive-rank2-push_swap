@@ -1,5 +1,7 @@
 #include "push_swap.h"
 
+#include <stdio.h>
+
 void handle_error(t_stack *stack, t_data *data)
 {
 	if (stack)
@@ -18,12 +20,11 @@ void	free_stack(t_stack *stack)
 	while (current != NULL)
 	{
 		next = current->next;
+		printf("free %p\n", current);
 		free(current);  // Free the current node
-		current = NULL;
 		current = next;
 	}
 	free(stack);  // Free the stack structure
-	stack = NULL;
 }
 
 void	error_free_argv(t_data *data)

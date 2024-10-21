@@ -1,8 +1,11 @@
 #include "push_swap.h"
 
+#include <stdio.h>
+
 t_node *create_node(int value)
 {
 	t_node *new_node = (t_node *)malloc(sizeof(t_node));
+	printf("malloc %p\n", new_node);
 	if (!new_node)
 		return NULL;  // Handle malloc failure
 
