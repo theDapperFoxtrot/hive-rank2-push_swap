@@ -11,6 +11,7 @@ typedef struct s_node
 	int				current_position;
 	bool			upper_half;
 	int				final_position;
+	int				pre_sorted;
 	int				push_price;
 	struct s_node	*next;
 	struct s_node	*previous;
@@ -32,7 +33,7 @@ typedef struct s_data
 
 int	main(int argc, char **argv);
 void	malloc_check(t_stack *stack_a, t_stack *stack_b, t_data *data);
-t_node *create_node(int value);
+t_node *create_node(int value, int position);
 void add_node_to_stack(t_stack *stack, t_node *new_node);
 void handle_error(t_stack *stack, t_data *data);
 void	free_stack(t_stack *stack);
@@ -41,5 +42,6 @@ void	set_default_values(t_stack *stack_a, t_stack *stack_b, char **argv, t_data 
 int	syntax_error(char *str);
 int	is_duplicate(t_stack *stack, long value);
 void	init_stack(t_stack *stack, t_data *data);
+void    	final_position_finder(t_stack *stack, t_data *data);
 
 #endif

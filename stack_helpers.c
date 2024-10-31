@@ -2,6 +2,7 @@
 
 void	set_default_values(t_stack *stack_a, t_stack *stack_b, char **argv, t_data *data)
 {
+		data->argv = argv;
 		stack_a->first_node = NULL;
 		stack_a->last_node = NULL;
 		stack_a->node_count = 0;

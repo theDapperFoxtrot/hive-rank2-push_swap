@@ -20,7 +20,7 @@ void	free_stack(t_stack *stack)
 	while (current != NULL)
 	{
 		next = current->next;
-		printf("free %p\n", current);
+		// printf("free %p\n", current);
 		free(current);  // Free the current node
 		current = next;
 	}
