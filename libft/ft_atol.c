@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thedapperfoxtrot <thedapperfoxtrot@stud    +#+  +:+       +#+        */
+/*   By: smishos <smishos@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 22:47:04 by thedapperfo       #+#    #+#             */
-/*   Updated: 2024/10/12 23:09:02 by thedapperfo      ###   ########.fr       */
+/*   Updated: 2024/11/04 19:16:47 by smishos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

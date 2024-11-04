@@ -52,5 +52,4 @@ void	init_stack(t_stack *stack, t_data *data)
 		position++;
 		i++;
 	}
-	final_position_finder(stack, data);
 }

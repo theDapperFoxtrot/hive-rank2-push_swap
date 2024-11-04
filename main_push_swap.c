@@ -47,10 +47,29 @@ int	main(int argc, char **argv)
 		printf("upper_half: %d\n", iterator->upper_half);
 		printf("push_price: %d\n", iterator->push_price);
 		printf("next: %p\n", iterator->next);
+		if (iterator->next)
+			printf("current: %p\n", iterator->next->previous);
 		printf("previous: %p\n\n", iterator->previous);
 		iterator = iterator->next;
 	}
 
+	sa(stack_a);
+
+	iterator = stack_a->first_node;
+	printf("NODES AFTER SWAP:\n\n");
+	while (iterator)
+	{
+		printf("value: %d\n", iterator->value);
+		printf("final_position: [%d]\n", iterator->final_position);
+		printf("current_position: [%d]\n", iterator->current_position);
+		printf("upper_half: %d\n", iterator->upper_half);
+		printf("push_price: %d\n", iterator->push_price);
+		printf("next: %p\n", iterator->next);
+		if (iterator->next)
+			printf("current: %p\n", iterator->next->previous);
+		printf("previous: %p\n\n", iterator->previous);
+		iterator = iterator->next;
+	}
 
     // Now, validate input and add nodes to the stacks
     // For example: if (validate_input(argc, argv)) { ... }
