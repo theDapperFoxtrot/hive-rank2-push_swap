@@ -19,10 +19,7 @@ int	main(int argc, char **argv)
 	t_stack *stack_a = (t_stack *)malloc(sizeof(t_stack));
     t_stack *stack_b = (t_stack *)malloc(sizeof(t_stack));
 	t_data	data;
-	// char	***temp_argv;
-	// int		i;
 
-	// i = 0;
 	data.argc = argc;
 	malloc_check(stack_a, stack_b, &data);
 	// Check if there are no arguments
@@ -44,10 +41,7 @@ int	main(int argc, char **argv)
 	while (iterator_a)
 	{
 		printf("value: %d\n", iterator_a->value);
-		// printf("final_position: [%d]\n", iterator_a->final_position);
 		printf("current_position: [%d]\n", iterator_a->current_position);
-		// printf("upper_half: %d\n", iterator_a->upper_half);
-		// printf("push_price: %d\n", iterator_a->push_price);
 		printf("next: %p\n", iterator_a->next);
 		if (iterator_a->next)
 			printf("current: %p\n", iterator_a->next->previous);
@@ -55,29 +49,9 @@ int	main(int argc, char **argv)
 		iterator_a = iterator_a->next;
 	}
 
-	// sa(stack_a);
-
-	// iterator_a = stack_a->first_node;
-	// printf("NODES_A AFTER SWAP:\n");
-	// while (iterator_a)
-	// {
-	// 	printf("value: %d\n", iterator_a->value);
-	// 	printf("final_position: [%d]\n", iterator_a->final_position);
-	// 	printf("current_position: [%d]\n", iterator_a->current_position);
-	// 	printf("upper_half: %d\n", iterator_a->upper_half);
-	// 	printf("push_price: %d\n", iterator_a->push_price);
-	// 	printf("next: %p\n", iterator_a->next);
-	// 	if (iterator_a->next)
-	// 		printf("current: %p\n", iterator_a->next->previous);
-	// 	printf("previous: %p\n\n", iterator_a->previous);
-	// 	iterator_a = iterator_a->next;
-	// }
-
 	pb(stack_a, stack_b);
 	pb(stack_a, stack_b);
-	pb(stack_a, stack_b);
-	pb(stack_a, stack_b);
-	pb(stack_a, stack_b);
+	pa(stack_a, stack_b);
 
 	iterator_a = stack_a->first_node;
 	printf("\n----------------NODES_A AFTER Push:\n");
@@ -85,10 +59,7 @@ int	main(int argc, char **argv)
 	while (iterator_a)
 	{
 		printf("value: %d\n", iterator_a->value);
-		// printf("final_position: [%d]\n", iterator_a->final_position);
 		printf("current_position: [%d]\n", iterator_a->current_position);
-		// printf("upper_half: %d\n", iterator_a->upper_half);
-		// printf("push_price: %d\n", iterator_a->push_price);
 		printf("next: %p\n", iterator_a->next);
 		if (iterator_a->next)
 			printf("current: %p\n", iterator_a->next->previous);
@@ -113,27 +84,11 @@ int	main(int argc, char **argv)
 		iterator_b = iterator_b->next;
 	}
 
-	// iterator_b = stack_b->first_node;
-	// printf("NODES_B AFTER SWAP:\n\n");
-	// while (iterator_b)
-	// {
-	// 	printf("value: %d\n", iterator_b->value);
-	// 	printf("final_position: [%d]\n", iterator_b->final_position);
-	// 	printf("current_position: [%d]\n", iterator_b->current_position);
-	// 	printf("upper_half: %d\n", iterator_b->upper_half);
-	// 	printf("push_price: %d\n", iterator_b->push_price);
-		// printf("next: %p\n", iterator_b->next);
-		// if (iterator_b->next)
-		// 	printf("current: %p\n", iterator_b->next->previous);
-		// printf("previous: %p\n\n", iterator_b->previous);
-		// iterator_b = iterator_b->next;
-	// }
-
     // Now, validate input and add nodes to the stacks
     // For example: if (validate_input(argc, argv)) { ... }
     // When done using the stacks, free them
-    // free_stack(stack_a);
-    // free_stack(stack_b);
-	// error_free_argv(&data);
+    free_stack(stack_a);
+    free_stack(stack_b);
+	error_free_argv(&data);
 	return (0);
 }
