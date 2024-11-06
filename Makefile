@@ -1,7 +1,7 @@
 NAME = push_swap
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -g
-SRC = main_push_swap.c node_helpers.c free_memory.c stack_helpers.c init_stack.c operations.c
+SRC = main_push_swap.c node_helpers.c free_memory.c stack_helpers.c init_stack.c operations_swap.c operations_push_a.c operations_push_b.c
 OBJ = $(SRC:.c=.o)
 LIBFT = libft/libft.a
 
