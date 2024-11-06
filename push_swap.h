@@ -42,7 +42,9 @@ int		syntax_error(char *str);
 int		is_duplicate(t_stack *stack, long value);
 void	init_stack(t_stack *stack, t_data *data);
 void    sa(t_stack *stack_a);
+void    sb(t_stack *stack_b);
 void    pa(t_stack *stack_a, t_stack *stack_b);
 void    pb(t_stack *stack_a, t_stack *stack_b);
+void	rotate_a(t_stack *stack);
 
 #endif

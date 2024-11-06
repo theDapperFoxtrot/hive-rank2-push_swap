@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/home/thedapperfoxtrot/code/push_swap",
-      "program": "/home/thedapperfoxtrot/code/push_swap/build/Debug/outDebug",
+      "cwd": "/home/smishos/Documents/github/push_swap",
+      "program": "/home/smishos/Documents/github/push_swap/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
