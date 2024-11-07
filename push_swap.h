@@ -41,10 +41,16 @@ void	set_default_values(t_stack *stack_a, t_stack *stack_b, char **argv, t_data 
 int		syntax_error(char *str);
 int		is_duplicate(t_stack *stack, long value);
 void	init_stack(t_stack *stack, t_data *data);
-void    sa(t_stack *stack_a);
-void    sb(t_stack *stack_b);
+void    sa(t_stack *stack_a, int print);
+void    sb(t_stack *stack_b, int print);
+void	ss(t_stack *stack_a, t_stack *stack_b);
 void    pa(t_stack *stack_a, t_stack *stack_b);
 void    pb(t_stack *stack_a, t_stack *stack_b);
-void	rotate_a(t_stack *stack);
+void	rotate_a(t_stack *stack_a, int print);
+void	rotate_b(t_stack *stack_b, int print);
+void	rotate_both(t_stack *stack_a, t_stack *stack_b);
+void	reverse_rotate_a(t_stack *stack_a, int print);
+void	reverse_rotate_b(t_stack *stack_b, int print);
+void	reverse_rotate_both(t_stack *stack_a, t_stack *stack_b);
 
 #endif

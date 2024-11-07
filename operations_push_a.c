@@ -51,4 +51,5 @@ void    pa(t_stack *stack_a, t_stack *stack_b)
 	}
 	stack_a->node_count++; //increment node count in stack b
 	stack_b->node_count--; //decrement node count in stack a
+	ft_putstr_fd("pa\n", 1);
 }

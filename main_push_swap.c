@@ -52,7 +52,8 @@ int	main(int argc, char **argv)
 	// pb(stack_a, stack_b);
 	// pb(stack_a, stack_b);
 	// pa(stack_a, stack_b);
-	rotate_a(stack_a);
+	// rotate_a(stack_a);
+	// reverse_rotate_a(stack_a);
 
 	iterator_a = stack_a->first_node;
 	printf("\n----------------NODES_A AFTER Push:\n");

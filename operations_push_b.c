@@ -51,4 +51,5 @@ void    pb(t_stack *stack_a, t_stack *stack_b)
 	}
 	stack_b->node_count++; //increment node count in stack b
 	stack_a->node_count--; //decrement node count in stack a
+	ft_putstr_fd("pb\n", 1);
 }

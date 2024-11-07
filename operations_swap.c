@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void    sa(t_stack *stack_a)
+void    sa(t_stack *stack_a, int print)
 {
 	t_node  *temp_node1;
 	t_node  *temp_node2;
@@ -18,9 +18,11 @@ void    sa(t_stack *stack_a)
 	temp_node2->current_position = temp_node2->current_position - 1; //node1 current position is now 2
 	//SWAP first and scond node
 	stack_a->first_node = temp_node2; //node2 is now first node
+	if (!print)
+		ft_putstr_fd("sa\n", 1);
 	}
 
-void    sb(t_stack *stack_b)
+void    sb(t_stack *stack_b, int print)
 {
 	t_node  *temp_node1;
 	t_node  *temp_node2;
@@ -38,10 +40,13 @@ void    sb(t_stack *stack_b)
 	temp_node2->current_position = temp_node2->current_position - 1; //node1 current position is now 2
 	//SWAP first and scond node
 	stack_b->first_node = temp_node2; //node2 is now first node
+	if (!print)
+		ft_putstr_fd("sb\n", 1);
 	}
 
 void	ss(t_stack *stack_a, t_stack *stack_b)
 {
-	sa(stack_a);
-	sb(stack_b);
+	sa(stack_a, 0);
+	sb(stack_b, 0);
+	ft_putstr_fd("ss\n", 1);
 }
