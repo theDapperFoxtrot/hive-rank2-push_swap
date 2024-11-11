@@ -28,6 +28,7 @@ typedef struct s_data
 {
 	int		argc;
 	char	**argv;
+	int		*sorted_array;
 }	t_data;
 
 
@@ -52,5 +53,6 @@ void	rotate_both(t_stack *stack_a, t_stack *stack_b);
 void	reverse_rotate_a(t_stack *stack_a, int print);
 void	reverse_rotate_b(t_stack *stack_b, int print);
 void	reverse_rotate_both(t_stack *stack_a, t_stack *stack_b);
+void	sorting(t_stack *stack_a, t_stack *stack_b, t_data *data);
 
 #endif
