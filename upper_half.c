@@ -2,19 +2,21 @@
 
 void upper_half_true_false(t_stack *stack, t_data *data)
 {
-	t_node *node_of_interest;
+	t_node *current_node;
 
 	if (!stack->first_node)
 	return ;
 
-	node_of_interest = stack->first_node;
-	node_of_interest->upper_half = true;
-	node_of_interest = node_of_interest->next;
-	while (node_of_interest)
+	current_node = stack->first_node;
+	current_node->upper_half = true;
+	current_node = current_node->next;
+	while (current_node)
 	{
-		if (node_of_interest->current_position < ((data->argc - 1) / 2))
-			node_of_interest->upper_half = true;
-		node_of_interest = node_of_interest->next;
+		if (current_node->current_position < ((data->argc - 1) / 2) + 1)
+			current_node->upper_half = true;
+		else
+			current_node->upper_half = false;
+		current_node = current_node->next;
 	}
 }
 

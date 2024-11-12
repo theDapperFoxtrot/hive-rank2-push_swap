@@ -42,6 +42,9 @@ void	set_default_values(t_stack *stack_a, t_stack *stack_b, char **argv, t_data 
 int		syntax_error(char *str);
 int		is_duplicate(t_stack *stack, long value);
 void	init_stack(t_stack *stack, t_data *data);
+void	sorting(t_stack *stack_a, t_stack *stack_b, t_data *data);
+void	is_upper_half(t_stack *stack_a, t_stack *stack_b, t_data *data);
+void	upper_half_true_false(t_stack *stack, t_data *data);
 // OPERATIONS
 void    sa(t_stack *stack_a, int print, t_data *data);
 void    sb(t_stack *stack_b, int print, t_data *data);
@@ -55,8 +58,5 @@ void	reverse_rotate_a(t_stack *stack_a, int print, t_data *data);
 void	reverse_rotate_b(t_stack *stack_b, int print, t_data *data);
 void	reverse_rotate_both(t_stack *stack_a, t_stack *stack_b, t_data *data);
 
-void	sorting(t_stack *stack_a, t_stack *stack_b, t_data *data);
-void	is_upper_half(t_stack *stack_a, t_stack *stack_b, t_data *data);
-void	upper_half_true_false(t_stack *stack, t_data *data);
 
 #endif

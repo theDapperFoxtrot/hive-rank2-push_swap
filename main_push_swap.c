@@ -60,18 +60,20 @@ int	main(int argc, char **argv)
 		iterator_a = iterator_a->next;
 	}
 
-	// pa(stack_a, stack_b);
-	pb(stack_a, stack_b, &data);
-
-	// reverse_rotate_a(stack_a, 1);
-	// reverse_rotate_b(stack_b, 1);
-	// reverse_rotate_both(stack_a, stack_b, 0);
-	// rotate_a(stack_a, 1);
-	// rotate_b(stack_b, 1);
-	// rotate_both(stack_a, stack_b, 0);
-	// sa(stack_a, 1);
-	// sb(stack_b, 1);
-	// ss(stack_a, stack_b, 0);
+	printf("\n--------------MOVES:\n");
+	// pb(stack_a, stack_b, &data);
+	// pa(stack_a, stack_b, &data);
+	reverse_rotate_a(stack_a, 1, &data);
+	reverse_rotate_a(stack_a, 1, &data);
+	reverse_rotate_a(stack_a, 1, &data);
+	// reverse_rotate_b(stack_b, 1, &data);
+	// reverse_rotate_both(stack_a, stack_b, 0, &data);
+	// rotate_a(stack_a, 1, &data);
+	// rotate_b(stack_b, 1, &data);
+	// rotate_both(stack_a, stack_b, 0, &data);
+	// sa(stack_a, 1, &data);
+	// sb(stack_b, 1, &data);
+	// ss(stack_a, stack_b, 0, &data);
 
 	iterator_a = stack_a->first_node;
 	printf("\n----------------NODES_A AFTER MOVE(S):\n");
