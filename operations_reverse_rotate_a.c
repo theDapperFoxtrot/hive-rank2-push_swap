@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void	reverse_rotate_a(t_stack *stack_a, int print)
+void	reverse_rotate_a(t_stack *stack_a, int print, t_data *data)
 {
 	t_node	*temp_node;
 	t_node	*current_node;
@@ -21,6 +21,7 @@ void	reverse_rotate_a(t_stack *stack_a, int print)
 	stack_a->first_node->previous = temp_node;
 	temp_node->previous = NULL;
     stack_a->first_node = temp_node;
+	upper_half_true_false(stack_a, data);
 	if (print)
 		ft_putstr_fd("rra\n", 1);
 }

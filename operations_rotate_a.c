@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void	rotate_a(t_stack *stack_a, int print)
+void	rotate_a(t_stack *stack_a, int print, t_data *data)
 {
 	t_node	*temp_node;
 	t_node	*current_node;
@@ -21,6 +21,7 @@ void	rotate_a(t_stack *stack_a, int print)
 	stack_a->last_node->next = temp_node; // last node is now the first node
 	temp_node->previous = stack_a->last_node; // last node is now the first node
 	stack_a->last_node = temp_node; // last node is now the first node
+	upper_half_true_false(stack_a, data);
 	if (print)
 		ft_putstr_fd("ra\n", 1);
 }

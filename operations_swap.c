@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void    sa(t_stack *stack_a, int print)
+void    sa(t_stack *stack_a, int print, t_data *data)
 {
 	t_node  *temp_node1;
 	t_node  *temp_node2;
@@ -18,11 +18,12 @@ void    sa(t_stack *stack_a, int print)
 	temp_node2->current_position = temp_node2->current_position - 1; //node1 current position is now 2
 	//SWAP first and scond node
 	stack_a->first_node = temp_node2; //node2 is now first node
+	upper_half_true_false(stack_a, data);
 	if (!print)
 		ft_putstr_fd("sa\n", 1);
 	}
 
-void    sb(t_stack *stack_b, int print)
+void    sb(t_stack *stack_b, int print, t_data *data)
 {
 	t_node  *temp_node1;
 	t_node  *temp_node2;
@@ -40,13 +41,15 @@ void    sb(t_stack *stack_b, int print)
 	temp_node2->current_position = temp_node2->current_position - 1; //node1 current position is now 2
 	//SWAP first and scond node
 	stack_b->first_node = temp_node2; //node2 is now first node
+	upper_half_true_false(stack_b, data);
 	if (!print)
 		ft_putstr_fd("sb\n", 1);
 	}
 
-void	ss(t_stack *stack_a, t_stack *stack_b)
+void	ss(t_stack *stack_a, t_stack *stack_b, t_data *data)
 {
-	sa(stack_a, 0);
-	sb(stack_b, 0);
+	sa(stack_a, 0, data);
+	sb(stack_b, 0, data);
+	is_upper_half(stack_a, stack_b, data);
 	ft_putstr_fd("ss\n", 1);
 }

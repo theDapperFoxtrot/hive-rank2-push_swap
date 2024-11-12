@@ -32,7 +32,7 @@ static void move_node(t_stack *stack_b, t_node *temp_node_1)
 }
 
 // PUSH B
-void    pb(t_stack *stack_a, t_stack *stack_b)
+void    pb(t_stack *stack_a, t_stack *stack_b, t_data *data)
 {
 	t_node  *current_node;
 	t_node  *temp_node_1;
@@ -51,5 +51,6 @@ void    pb(t_stack *stack_a, t_stack *stack_b)
 	}
 	stack_b->node_count++; //increment node count in stack b
 	stack_a->node_count--; //decrement node count in stack a
+	upper_half_true_false(stack_b, data);
 	ft_putstr_fd("pb\n", 1);
 }

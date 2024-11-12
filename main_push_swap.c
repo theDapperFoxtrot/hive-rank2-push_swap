@@ -43,46 +43,65 @@ int	main(int argc, char **argv)
 	// Sorting the stack using the fewest moves possible
 	sorting(stack_a, stack_b, &data);
 
-	int	i = 0;
-	while (i < data.argc - 1)
+	// I want to test printing out the stack of integers once they've been added
+	t_node *iterator_a = stack_a->first_node;
+	t_node *iterator_b = stack_b->first_node;
+	printf("\n--------------NODES_A:\n");
+	printf("%d\n\n", stack_a->node_count);
+	while (iterator_a)
 	{
-		printf("[%d]: %d\n", i, data.sorted_array[i]);
-		i++;
+		printf("value: %d\n", iterator_a->value);
+		printf("current_position: [%d]\n", iterator_a->current_position);
+		printf("final_position: [%d]\n", iterator_a->final_position);
+		printf("upper_half: [%d]\n", iterator_a->upper_half);
+		printf("next: %p\n", iterator_a->next);
+		printf("current: %p\n", iterator_a);
+		printf("previous: %p\n\n", iterator_a->previous);
+		iterator_a = iterator_a->next;
 	}
 
-	// I want to test printing out the stack of integers once they've been added
-	// t_node *iterator_a = stack_a->first_node;
-	// // t_node *iterator_b = stack_b->first_node;
-	// printf("\n--------------NODES_A:\n");
-	// printf("%d\n\n", stack_a->node_count);
-	// while (iterator_a)
-	// {
-	// 	printf("value: %d\n", iterator_a->value);
-	// 	printf("current_position: [%d]\n", iterator_a->current_position);
-	// 	printf("next: %p\n", iterator_a->next);
-	// 	printf("current: %p\n", iterator_a);
-	// 	printf("previous: %p\n\n", iterator_a->previous);
-	// 	iterator_a = iterator_a->next;
-	// }
+	// pa(stack_a, stack_b);
+	pb(stack_a, stack_b, &data);
 
-	// // pb(stack_a, stack_b, 1);
-	// // pb(stack_a, stack_b, 1);
-	// // pa(stack_a, stack_b, 1);
+	// reverse_rotate_a(stack_a, 1);
+	// reverse_rotate_b(stack_b, 1);
+	// reverse_rotate_both(stack_a, stack_b, 0);
 	// rotate_a(stack_a, 1);
-	// // reverse_rotate_a(stack_a, 1);
+	// rotate_b(stack_b, 1);
+	// rotate_both(stack_a, stack_b, 0);
+	// sa(stack_a, 1);
+	// sb(stack_b, 1);
+	// ss(stack_a, stack_b, 0);
 
-	// iterator_a = stack_a->first_node;
-	// printf("\n----------------NODES_A AFTER MOVE(S):\n");
-	// printf("%d\n\n", stack_a->node_count);
-	// while (iterator_a)
-	// {
-	// 	printf("value: %d\n", iterator_a->value);
-	// 	printf("current_position: [%d]\n", iterator_a->current_position);
-	// 	printf("next: %p\n", iterator_a->next);
-	// 	printf("current: %p\n", iterator_a);
-	// 	printf("previous: %p\n\n", iterator_a->previous);
-	// 	iterator_a = iterator_a->next;
-	// }
+	iterator_a = stack_a->first_node;
+	printf("\n----------------NODES_A AFTER MOVE(S):\n");
+	printf("%d\n\n", stack_a->node_count);
+	while (iterator_a)
+	{
+		printf("value: %d\n", iterator_a->value);
+		printf("current_position: [%d]\n", iterator_a->current_position);
+		printf("final_position: [%d]\n", iterator_a->final_position);
+		printf("upper_half: [%d]\n", iterator_a->upper_half);
+		printf("next: %p\n", iterator_a->next);
+		printf("current: %p\n", iterator_a);
+		printf("previous: %p\n\n", iterator_a->previous);
+		iterator_a = iterator_a->next;
+	}
+
+	iterator_b = stack_b->first_node;
+	printf("\n----------------NODES_B AFTER MOVE(S):\n");
+	printf("%d\n\n", stack_b->node_count);
+	while (iterator_b)
+	{
+		printf("value: %d\n", iterator_b->value);
+		printf("current_position: [%d]\n", iterator_b->current_position);
+		printf("final_position: [%d]\n", iterator_b->final_position);
+		printf("upper_half: [%d]\n", iterator_b->upper_half);
+		printf("next: %p\n", iterator_b->next);
+		printf("current: %p\n", iterator_b);
+		printf("previous: %p\n\n", iterator_b->previous);
+		iterator_b = iterator_b->next;
+	}
 
     // Now, validate input and add nodes to the stacks
     // For example: if (validate_input(argc, argv)) { ... }

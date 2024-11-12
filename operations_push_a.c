@@ -32,7 +32,7 @@ static void move_node(t_stack *stack_a, t_node *temp_node_1)
 }
 
 // PUSH A
-void    pa(t_stack *stack_a, t_stack *stack_b)
+void    pa(t_stack *stack_a, t_stack *stack_b, t_data *data)
 {
 	t_node  *current_node;
 	t_node  *temp_node_1;
@@ -51,5 +51,6 @@ void    pa(t_stack *stack_a, t_stack *stack_b)
 	}
 	stack_a->node_count++; //increment node count in stack b
 	stack_b->node_count--; //decrement node count in stack a
+	upper_half_true_false(stack_a, data);
 	ft_putstr_fd("pa\n", 1);
 }
