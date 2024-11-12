@@ -22,6 +22,6 @@ void	reverse_rotate_b(t_stack *stack_b, int print, t_data *data)
 	temp_node->previous = NULL;
     stack_b->first_node = temp_node;
 	upper_half_true_false(stack_b, data);
-	if (print)
+	if (!print)
 		ft_putstr_fd("rrb\n", 1);
 }
