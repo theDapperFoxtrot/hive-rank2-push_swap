@@ -20,7 +20,7 @@ static void get_stuff_in_b(t_stack *stack_a, t_stack *stack_b, t_data *data)
         }
         else if (stack_a->last_node->final_position == target_node)
         {
-            reverse_rotate_a(stack_a, 0, data);
+            ra(stack_a, 0, data);
             pb(stack_a, stack_b, data);
             target_node++;
         }

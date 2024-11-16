@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void	rotate_a(t_stack *stack_a, int print, t_data *data)
+void	ra(t_stack *stack_a, int print, t_data *data)
 {
 	t_node	*temp_node;
 	t_node	*current_node;

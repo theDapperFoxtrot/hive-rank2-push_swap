@@ -51,12 +51,12 @@ void    sb(t_stack *stack_b, int print, t_data *data);
 void	ss(t_stack *stack_a, t_stack *stack_b, t_data *data);
 void    pa(t_stack *stack_a, t_stack *stack_b, t_data *data);
 void    pb(t_stack *stack_a, t_stack *stack_b, t_data *data);
-void	rotate_a(t_stack *stack_a, int print, t_data *data);
-void	rotate_b(t_stack *stack_b, int print, t_data *data);
-void	rotate_both(t_stack *stack_a, t_stack *stack_b, t_data *data);
-void	reverse_rotate_a(t_stack *stack_a, int print, t_data *data);
-void	reverse_rotate_b(t_stack *stack_b, int print, t_data *data);
-void	reverse_rotate_both(t_stack *stack_a, t_stack *stack_b, t_data *data);
+void	ra(t_stack *stack_a, int print, t_data *data);
+void	rb(t_stack *stack_b, int print, t_data *data);
+void	rr(t_stack *stack_a, t_stack *stack_b, t_data *data);
+void	rra(t_stack *stack_a, int print, t_data *data);
+void	rrb(t_stack *stack_b, int print, t_data *data);
+void	rrr(t_stack *stack_a, t_stack *stack_b, t_data *data);
 
 
 #endif
