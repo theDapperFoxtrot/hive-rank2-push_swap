@@ -18,6 +18,8 @@ void    sa(t_stack *stack_a, int print, t_data *data)
 	temp_node2->current_position = temp_node2->current_position - 1; //node1 current position is now 2
 	//SWAP first and scond node
 	stack_a->first_node = temp_node2; //node2 is now first node
+	if (stack_a->node_count == 2)
+		stack_a->last_node = temp_node1;
 	upper_half_true_false(stack_a, data);
 	if (!print)
 		ft_putstr_fd("sa\n", 1);
@@ -41,6 +43,8 @@ void    sb(t_stack *stack_b, int print, t_data *data)
 	temp_node2->current_position = temp_node2->current_position - 1; //node1 current position is now 2
 	//SWAP first and scond node
 	stack_b->first_node = temp_node2; //node2 is now first node
+	if (stack_b->node_count == 2)
+		stack_b->last_node = temp_node1;
 	upper_half_true_false(stack_b, data);
 	if (!print)
 		ft_putstr_fd("sb\n", 1);

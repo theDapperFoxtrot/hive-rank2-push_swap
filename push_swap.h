@@ -20,6 +20,8 @@ typedef struct s_stack
 {
 	t_node	*first_node;
 	t_node	*last_node;
+	t_node	*max;
+	t_node	*min;
 	int		node_count;
 }	t_stack;
 
