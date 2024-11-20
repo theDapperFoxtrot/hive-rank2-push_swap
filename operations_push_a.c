@@ -52,5 +52,7 @@ void    pa(t_stack *stack_a, t_stack *stack_b, t_data *data)
 	stack_a->node_count++; //increment node count in stack b
 	stack_b->node_count--; //decrement node count in stack a
 	upper_half_true_false(stack_a, data);
+	determine_costs(stack_a);
+	determine_costs(stack_b);
 	ft_putstr_fd("pa\n", 1);
 }

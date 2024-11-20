@@ -22,6 +22,7 @@ void	rra(t_stack *stack_a, int print, t_data *data)
 	temp_node->previous = NULL;
     stack_a->first_node = temp_node;
 	upper_half_true_false(stack_a, data);
+	determine_costs(stack_a);
 	if (!print)
 		ft_putstr_fd("rra\n", 1);
 }

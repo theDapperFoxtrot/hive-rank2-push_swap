@@ -52,5 +52,7 @@ void    pb(t_stack *stack_a, t_stack *stack_b, t_data *data)
 	stack_b->node_count++; //increment node count in stack b
 	stack_a->node_count--; //decrement node count in stack a
 	upper_half_true_false(stack_b, data);
+	determine_costs(stack_a);
+	determine_costs(stack_b);
 	ft_putstr_fd("pb\n", 1);
 }

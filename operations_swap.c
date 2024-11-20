@@ -21,6 +21,7 @@ void    sa(t_stack *stack_a, int print, t_data *data)
 	if (stack_a->node_count == 2)
 		stack_a->last_node = temp_node1;
 	upper_half_true_false(stack_a, data);
+	determine_costs(stack_a);
 	if (!print)
 		ft_putstr_fd("sa\n", 1);
 	}
@@ -46,6 +47,7 @@ void    sb(t_stack *stack_b, int print, t_data *data)
 	if (stack_b->node_count == 2)
 		stack_b->last_node = temp_node1;
 	upper_half_true_false(stack_b, data);
+	determine_costs(stack_b);
 	if (!print)
 		ft_putstr_fd("sb\n", 1);
 	}

@@ -3,6 +3,7 @@
 
 # include "libft/libft.h"
 # include <stdbool.h>
+# include <limits.h>
 
 // information for each value in the unique integer to be sorted
 typedef struct s_node
@@ -12,6 +13,8 @@ typedef struct s_node
 	bool			upper_half;
 	int				final_position;
 	int				pre_sorted;
+	int				cost;
+	struct s_node	*target;
 	struct s_node	*next;
 	struct s_node	*previous;
 }	t_node;
@@ -22,6 +25,7 @@ typedef struct s_stack
 	t_node	*last_node;
 	t_node	*max;
 	t_node	*min;
+	t_node	*cheapest;
 	int		node_count;
 }	t_stack;
 
@@ -47,6 +51,11 @@ void	sorting(t_stack *stack_a, t_stack *stack_b, t_data *data);
 void	is_upper_half(t_stack *stack_a, t_stack *stack_b, t_data *data);
 void	upper_half_true_false(t_stack *stack, t_data *data);
 void	make_moves(t_stack *stack_a, t_stack *stack_b, t_data *data);
+void	push_cheapest_to_b(t_stack *a, t_stack *b);
+void	push_cheapest_to_a(t_stack *a, t_stack *b);
+int		is_sorted(t_stack *stack);
+void	determine_costs(t_stack *stack);
+t_node	*cheapest_node(t_stack *stack);
 // OPERATIONS
 void    sa(t_stack *stack_a, int print, t_data *data);
 void    sb(t_stack *stack_b, int print, t_data *data);
