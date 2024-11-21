@@ -9,13 +9,13 @@ static void sort_more(t_stack *stack_a, t_stack *stack_b, t_data *data)
 	while (!is_sorted(stack_a) && stack_a->node_count-- > 3)
 	{
 		target_in_b(stack_a, stack_b);
-		push_cheapest_to_b(stack_a, stack_b);
+		push_cheapest_to_b(stack_a, stack_b, data);
 	}
 	sort_three(stack_a, data);
 	while (stack_b->node_count != 0)
 	{
 		target_in_a(stack_a, stack_b);
-		push_cheapest_to_a(stack_a, stack_b);
+		push_cheapest_to_a(stack_a, stack_b, data);
 	}
 	min_first(stack_a);
 

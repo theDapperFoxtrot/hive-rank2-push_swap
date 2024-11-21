@@ -16,20 +16,31 @@ int	is_sorted(t_stack *stack)
 	return (1);
 }
 
-void	push_cheapest_to_b(t_stack *stack_a, t_stack *stack_b)
+void	push_cheapest_to_b(t_stack *stack_a, t_stack *stack_b, t_data *data)
 {
 	t_node	*cheapest;
 	t_node	*target;
 
 	cheapest = cheapest_node(stack_a);
 	target = cheapest->target;
-	if (above_median(*a, cheapest) && above_median(*b, target))
-		rr_and_refresh(a, b, cheapest);
-	else if (!above_median(*a, cheapest) && !above_median(*b, target))
-		rrr_and_refresh(a, b, cheapest);
-	make_top_a(a, cheapest);
-	make_top_b(b, target);
-	pb(a, b);
+	if (cheapest->upper_half && target->upper_half)
+		while (cheapest->current_position != 0 || target->current_position != 0)
+			rr(stack_a, stack_b, data);
+	else if (!cheapest->upper_half && !target->upper_half)
+		while (cheapest->current_position != 0 || target->current_position != 0)
+			rrr(stack_a, stack_b, data);
+	while (cheapest->current_position != 0)
+		if (cheapest->upper_half)
+			ra(stack_a, stack_b, data);
+		else
+			rra(stack_a, stack_b, data);
+		ra(stack_a, stack_b, data);
+	while (target->current_position != 0)
+		if (target->upper_half)
+			rb(stack_b, 0, data);
+		else
+			rrb(stack_b, 0, data);
+	pb(stack_a, stack_b, data);
 }
 
 void determine_costs(t_stack *stack)
