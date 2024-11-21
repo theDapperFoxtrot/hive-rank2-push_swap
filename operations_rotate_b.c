@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void	rb(t_stack *stack_b, int print, t_data *data)
+void	rb(t_stack *stack_b, int print)
 {
 	t_node	*temp_node;
 	t_node	*current_node;
@@ -21,8 +21,7 @@ void	rb(t_stack *stack_b, int print, t_data *data)
 	stack_b->last_node->next = temp_node; // last node is now the first node
 	temp_node->previous = stack_b->last_node; // last node is now the first node
 	stack_b->last_node = temp_node; // last node is now the first node
-	upper_half_true_false(stack_b, data);
-	determine_costs(stack_b);
+	upper_half_true_false(stack_b);
 	if (!print)
 		ft_putstr_fd("rb\n", 1);
 }

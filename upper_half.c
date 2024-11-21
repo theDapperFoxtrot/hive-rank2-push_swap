@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void upper_half_true_false(t_stack *stack, t_data *data)
+void upper_half_true_false(t_stack *stack)
 {
 	t_node *current_node;
 
@@ -12,7 +12,7 @@ void upper_half_true_false(t_stack *stack, t_data *data)
 	current_node = current_node->next;
 	while (current_node)
 	{
-		if (current_node->current_position < ((data->argc - 1) / 2) + 1)
+		if (current_node->current_position < (stack->node_count / 2))
 			current_node->upper_half = true;
 		else
 			current_node->upper_half = false;
@@ -20,8 +20,8 @@ void upper_half_true_false(t_stack *stack, t_data *data)
 	}
 }
 
-void is_upper_half(t_stack *stack_a, t_stack *stack_b, t_data *data)
+void is_upper_half(t_stack *stack_a, t_stack *stack_b)
 {
-	upper_half_true_false(stack_a, data);
-	upper_half_true_false(stack_b, data);
+	upper_half_true_false(stack_a);
+	upper_half_true_false(stack_b);
 }

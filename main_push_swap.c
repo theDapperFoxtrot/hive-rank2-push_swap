@@ -40,7 +40,7 @@ int	main(int argc, char **argv)
 	// Sorting the stack using the fewest moves possible
 	sorting(stack_a, stack_b, &data);
 
-	make_moves(stack_a, stack_b, &data);
+	make_moves(stack_a, stack_b);
 
 	free(data.sorted_array);
     free_stack(stack_a);

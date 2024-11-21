@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void    sa(t_stack *stack_a, int print, t_data *data)
+void    sa(t_stack *stack_a, int print)
 {
 	t_node  *temp_node1;
 	t_node  *temp_node2;
@@ -20,13 +20,12 @@ void    sa(t_stack *stack_a, int print, t_data *data)
 	stack_a->first_node = temp_node2; //node2 is now first node
 	if (stack_a->node_count == 2)
 		stack_a->last_node = temp_node1;
-	upper_half_true_false(stack_a, data);
-	determine_costs(stack_a);
+	upper_half_true_false(stack_a);
 	if (!print)
 		ft_putstr_fd("sa\n", 1);
 	}
 
-void    sb(t_stack *stack_b, int print, t_data *data)
+void    sb(t_stack *stack_b, int print)
 {
 	t_node  *temp_node1;
 	t_node  *temp_node2;
@@ -46,16 +45,15 @@ void    sb(t_stack *stack_b, int print, t_data *data)
 	stack_b->first_node = temp_node2; //node2 is now first node
 	if (stack_b->node_count == 2)
 		stack_b->last_node = temp_node1;
-	upper_half_true_false(stack_b, data);
-	determine_costs(stack_b);
+	upper_half_true_false(stack_b);
 	if (!print)
 		ft_putstr_fd("sb\n", 1);
 	}
 
-void	ss(t_stack *stack_a, t_stack *stack_b, t_data *data)
+void	ss(t_stack *stack_a, t_stack *stack_b)
 {
-	sa(stack_a, 0, data);
-	sb(stack_b, 0, data);
-	is_upper_half(stack_a, stack_b, data);
+	sa(stack_a, 0);
+	sb(stack_b, 0);
+	is_upper_half(stack_a, stack_b);
 	ft_putstr_fd("ss\n", 1);
 }

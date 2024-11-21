@@ -43,5 +43,5 @@ static void sort_array(t_stack *stack_a, t_data *data)
 void sorting(t_stack *stack_a, t_stack *stack_b, t_data *data)
 {
 	sort_array(stack_a, data);
-	is_upper_half(stack_a, stack_b, data);
+	is_upper_half(stack_a, stack_b);
 }

@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void	rra(t_stack *stack_a, int print, t_data *data)
+void	rra(t_stack *stack_a, int print)
 {
 	t_node	*temp_node;
 	t_node	*current_node;
@@ -16,13 +16,14 @@ void	rra(t_stack *stack_a, int print, t_data *data)
 	while (current_node)
 	{
 		current_node->current_position++;
+		if (current_node == stack_a->first_node)
+			break ;
 		current_node = current_node->previous;
 	}
 	stack_a->first_node->previous = temp_node;
 	temp_node->previous = NULL;
     stack_a->first_node = temp_node;
-	upper_half_true_false(stack_a, data);
-	determine_costs(stack_a);
+	upper_half_true_false(stack_a);
 	if (!print)
 		ft_putstr_fd("rra\n", 1);
 }

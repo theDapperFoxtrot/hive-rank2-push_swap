@@ -16,82 +16,85 @@ int	is_sorted(t_stack *stack)
 	return (1);
 }
 
-void	push_cheapest_to_b(t_stack *stack_a, t_stack *stack_b, t_data *data)
+void	push_cheapest_to_b(t_stack *stack_a, t_stack *stack_b)
 {
 	t_node	*cheapest;
 	t_node	*target;
 
+	determine_costs(stack_a, stack_b);
 	cheapest = cheapest_node(stack_a);
 	target = cheapest->target;
 	if (cheapest->upper_half && target->upper_half)
 		while (cheapest->current_position != 0 || target->current_position != 0)
-			rr(stack_a, stack_b, data);
+			rr(stack_a, stack_b);
 	else if (!cheapest->upper_half && !target->upper_half)
 		while (cheapest->current_position != 0 || target->current_position != 0)
-			rrr(stack_a, stack_b, data);
+			rrr(stack_a, stack_b);
 	while (cheapest->current_position != 0)
 	{
 		if (cheapest->upper_half)
-			ra(stack_a, 0, data);
+			ra(stack_a, 0);
 		else
-			rra(stack_a, 0, data);
-		ra(stack_a, 0, data);
+			rra(stack_a, 0);
+		ra(stack_a, 0);
 	}
 	while (target->current_position != 0)
 	{
 		if (target->upper_half)
-			rb(stack_b, 0, data);
+			rb(stack_b, 0);
 		else
-			rrb(stack_b, 0, data);
+			rrb(stack_b, 0);
 	}
-	pb(stack_a, stack_b, data);
+	pb(stack_a, stack_b);
 }
 
-void push_cheapest_to_a(t_stack *stack_a, t_stack *stack_b, t_data *data)
+void push_cheapest_to_a(t_stack *stack_a, t_stack *stack_b)
 {
 	t_node	*cheapest;
 	t_node	*target;
 
+	determine_costs(stack_b, stack_a);
 	cheapest = cheapest_node(stack_b);
 	target = cheapest->target;
 	if (cheapest->upper_half && target->upper_half)
 		while (cheapest->current_position != 0 || target->current_position != 0)
-			rr(stack_a, stack_b, data);
+			rr(stack_a, stack_b);
 	else if (!cheapest->upper_half && !target->upper_half)
 		while (cheapest->current_position != 0 || target->current_position != 0)
-			rrr(stack_a, stack_b, data);
+			rrr(stack_a, stack_b);
 	while (cheapest->current_position != 0)
 	{
 		if (cheapest->upper_half)
-			rb(stack_b, 0, data);
+			rb(stack_b, 0);
 		else
-			rrb(stack_b, 0, data);
-		ra(stack_a, 0, data);
+			rrb(stack_b, 0);
+		ra(stack_a, 0);
 	}
 	while (target->current_position != 0)
 	{
 		if (target->upper_half)
-			ra(stack_a, 0, data);
+			ra(stack_a, 0);
 		else
-			rra(stack_a, 0, data);
+			rra(stack_a, 0);
 	}
-	pa(stack_a, stack_b, data);
+	pa(stack_a, stack_b);
 }
 
 // REMEMBER THIS NEEDS TO BE CALLED TWICE FOR NODE ITSELF AND TARGET NODE (ADD TOGETHER FOR TOTAL COST)
-void determine_costs(t_stack *stack)
+void determine_costs(t_stack *outbound_stack, t_stack *inbound_stack)
 {
 	t_node	*current_node;
 
-	if (!stack->node_count)
+	if (!outbound_stack->node_count)
 		return ;
-	current_node = stack->first_node;
+	current_node = outbound_stack->first_node;
 	while (current_node)
 	{
-		if (current_node->upper_half)
-			current_node->cost = current_node->current_position;
+		if ((current_node->upper_half && current_node->target->upper_half) \
+			|| (!current_node->upper_half && !current_node->target->upper_half))
+			determine_costs_both(outbound_stack, inbound_stack, current_node);
 		else
-			current_node->cost = stack->node_count - current_node->current_position;
+			determine_costs_ind(outbound_stack, inbound_stack, current_node);
 		current_node = current_node->next;
 	}
 }

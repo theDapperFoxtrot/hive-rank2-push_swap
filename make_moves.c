@@ -1,32 +1,32 @@
 #include "push_swap.h"
 
-static void sort_more(t_stack *stack_a, t_stack *stack_b, t_data *data)
+static void sort_more(t_stack *stack_a, t_stack *stack_b)
 {
 	if (!is_sorted(stack_a) && stack_a->node_count > 3)
-		pb(stack_a, stack_b, data);
+		pb(stack_a, stack_b);
 	if (!is_sorted(stack_a) && stack_a->node_count > 3)
-		pb(stack_a, stack_b, data);
+		pb(stack_a, stack_b);
 	while (!is_sorted(stack_a) && stack_a->node_count > 3)
 	{
 		target_in_b(stack_a, stack_b);
-		push_cheapest_to_b(stack_a, stack_b, data);
+		push_cheapest_to_b(stack_a, stack_b);
 	}
-	sort_three(stack_a, data);
+	sort_three(stack_a);
 	while (stack_b->node_count != 0)
 	{
 		target_in_a(stack_a, stack_b);
-		push_cheapest_to_a(stack_a, stack_b, data);
+		push_cheapest_to_a(stack_a, stack_b);
 	}
 	while (stack_a->min->current_position != 0)
 	{
 		if (stack_a->min->upper_half)
-			ra(stack_a, 0, data);
+			ra(stack_a, 0);
 		else
-			rra(stack_a, 0, data);
+			rra(stack_a, 0);
 	}
 }
 
-void	sort_three(t_stack *stack, t_data *data)
+void	sort_three(t_stack *stack)
 {
 	int		first;
 	int		second;
@@ -39,28 +39,28 @@ void	sort_three(t_stack *stack, t_data *data)
 		return ;
 	else if (first < second && first < third && second > third)
 	{
-		sa(stack, 0, data);
-		ra(stack, 0, data);
+		sa(stack, 0);
+		ra(stack, 0);
 	}
 	else if (first > second && first < third && second < third)
-		sa(stack, 0, data);
+		sa(stack, 0);
 	else if (first < second && first > third && second > third)
-		rra(stack, 0, data);
+		rra(stack, 0);
 	else if (first > second && first > third && second < third)
-		ra(stack, 0, data);
+		ra(stack, 0);
 	else if (first > second && first > third && second > third)
 	{
-		sa(stack, 0, data);
-		rra(stack, 0, data);
+		sa(stack, 0);
+		rra(stack, 0);
 	}
 }
 
-void make_moves(t_stack *stack_a, t_stack *stack_b, t_data *data)
+void make_moves(t_stack *stack_a, t_stack *stack_b)
 {
 	if (stack_a->node_count == 2 && stack_a->first_node->value > stack_a->last_node->value)
-		sa(stack_a, 0, data);
+		sa(stack_a, 0);
 	else if (stack_a->node_count == 3)
-		sort_three(stack_a, data);
+		sort_three(stack_a);
 	else
-		sort_more(stack_a, stack_b, data);
+		sort_more(stack_a, stack_b);
 }
