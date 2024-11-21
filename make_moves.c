@@ -4,9 +4,9 @@ static void sort_more(t_stack *stack_a, t_stack *stack_b, t_data *data)
 {
 	if (!is_sorted(stack_a) && stack_a->node_count > 3)
 		pb(stack_a, stack_b, data);
-	if (!is_sorted(stack_a) && stack_a->node_count-- > 3)
+	if (!is_sorted(stack_a) && stack_a->node_count > 3)
 		pb(stack_a, stack_b, data);
-	while (!is_sorted(stack_a) && stack_a->node_count-- > 3)
+	while (!is_sorted(stack_a) && stack_a->node_count > 3)
 	{
 		target_in_b(stack_a, stack_b);
 		push_cheapest_to_b(stack_a, stack_b, data);

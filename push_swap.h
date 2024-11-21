@@ -8,7 +8,7 @@
 // information for each value in the unique integer to be sorted
 typedef struct s_node
 {
-	int				value;
+	long				value;
 	int				current_position;
 	bool			upper_half;
 	int				final_position;
