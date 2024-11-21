@@ -13,7 +13,7 @@ typedef struct s_node
 	bool			upper_half;
 	int				final_position;
 	int				pre_sorted;
-	int				cost;
+	long			cost;
 	struct s_node	*target;
 	struct s_node	*next;
 	struct s_node	*previous;
@@ -56,6 +56,10 @@ void	push_cheapest_to_a(t_stack *a, t_stack *b, t_data *data);
 int		is_sorted(t_stack *stack);
 void	determine_costs(t_stack *stack);
 t_node	*cheapest_node(t_stack *stack);
+void    find_new_min_max(t_stack *stack_a, t_stack *stack_b);
+void	target_in_b(t_stack *stack_a, t_stack *stack_b);
+void	target_in_a(t_stack *stack_a, t_stack *stack_b);
+void	sort_three(t_stack *stack, t_data *data);
 // OPERATIONS
 void    sa(t_stack *stack_a, int print, t_data *data);
 void    sb(t_stack *stack_b, int print, t_data *data);

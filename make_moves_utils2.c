@@ -9,7 +9,7 @@ void	target_in_b(t_stack *stack_a, t_stack *stack_b)
 	current_node_a = stack_a->first_node; // set the current node in stack_a to the first node
 	while (current_node_a) // while the current node in stack_a is not NULL
 	{
-		target = LONG_MAX; // set the target to the maximum value of a long
+		target->value = LONG_MAX; // set the target to the maximum value of a long
 		current_node_b = stack_b->first_node; // set the current node in stack_b to the first node
 		while (current_node_b) // while the current node in stack_b is not NULL
 		{
@@ -30,7 +30,7 @@ void	target_in_a(t_stack *stack_a, t_stack *stack_b)
 	current_node_b = stack_b->first_node; // set the current node in stack_b to the first node
 	while (current_node_b) // while the current node in stack_b is not NULL
 	{
-		target = LONG_MAX; // set the target to the maximum value of a long
+		target->value = LONG_MAX; // set the target to the maximum value of a long
 		current_node_a = stack_a->first_node; // set the current node in stack_a to the first node
 		while (current_node_a) // while the current node in stack_a is not NULL
 		{
