@@ -12,7 +12,7 @@ void upper_half_true_false(t_stack *stack)
 	current_node = current_node->next;
 	while (current_node)
 	{
-		if (current_node->current_position < (stack->node_count / 2))
+		if (current_node->current_position < (stack->node_count / 2) + 1)
 			current_node->upper_half = true;
 		else
 			current_node->upper_half = false;

@@ -28,20 +28,14 @@ int	main(int argc, char **argv)
     exit(1);
 	}
 	malloc_check(stack_a, stack_b, &data);
-	// Check if there are no arguments
 	if ((argc == 1) || (argc == 2 && !argv[1][0]))
 		return (1);
 	if (argc == 2)
 			data.argv = ft_split(argv[1], ' ');
 	set_default_values(stack_a, stack_b, argv, &data);
-	// Initialize the stacks with nodes
 	init_stack(stack_a, &data);
-
-	// Sorting the stack using the fewest moves possible
 	sorting(stack_a, stack_b, &data);
-
 	make_moves(stack_a, stack_b);
-
 	free(data.sorted_array);
     free_stack(stack_a);
     free_stack(stack_b);

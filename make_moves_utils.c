@@ -26,17 +26,24 @@ void	push_cheapest_to_b(t_stack *stack_a, t_stack *stack_b)
 	target = cheapest->target;
 	if (cheapest->upper_half && target->upper_half)
 		while (cheapest->current_position != 0 || target->current_position != 0)
+		{
 			rr(stack_a, stack_b);
+			if (cheapest->current_position == 0 || target->current_position == 0)
+				break ;
+		}
 	else if (!cheapest->upper_half && !target->upper_half)
 		while (cheapest->current_position != 0 || target->current_position != 0)
+		{
 			rrr(stack_a, stack_b);
+			if (cheapest->current_position == 0 || target->current_position == 0)
+				break ;
+		}
 	while (cheapest->current_position != 0)
 	{
 		if (cheapest->upper_half)
 			ra(stack_a, 0);
 		else
 			rra(stack_a, 0);
-		ra(stack_a, 0);
 	}
 	while (target->current_position != 0)
 	{
@@ -50,29 +57,12 @@ void	push_cheapest_to_b(t_stack *stack_a, t_stack *stack_b)
 
 void push_cheapest_to_a(t_stack *stack_a, t_stack *stack_b)
 {
-	t_node	*cheapest;
-	t_node	*target;
+	t_node	*current;
 
-	determine_costs(stack_b, stack_a);
-	cheapest = cheapest_node(stack_b);
-	target = cheapest->target;
-	if (cheapest->upper_half && target->upper_half)
-		while (cheapest->current_position != 0 || target->current_position != 0)
-			rr(stack_a, stack_b);
-	else if (!cheapest->upper_half && !target->upper_half)
-		while (cheapest->current_position != 0 || target->current_position != 0)
-			rrr(stack_a, stack_b);
-	while (cheapest->current_position != 0)
+	current = stack_b->first_node;
+	while (current->target->current_position != 0)
 	{
-		if (cheapest->upper_half)
-			rb(stack_b, 0);
-		else
-			rrb(stack_b, 0);
-		ra(stack_a, 0);
-	}
-	while (target->current_position != 0)
-	{
-		if (target->upper_half)
+		if (current->target->upper_half)
 			ra(stack_a, 0);
 		else
 			rra(stack_a, 0);
@@ -87,6 +77,12 @@ void determine_costs(t_stack *outbound_stack, t_stack *inbound_stack)
 
 	if (!outbound_stack->node_count)
 		return ;
+	current_node = outbound_stack->first_node;
+	while (current_node)
+	{
+		current_node->cost = 0;
+		current_node = current_node->next;
+	}
 	current_node = outbound_stack->first_node;
 	while (current_node)
 	{
