@@ -8,7 +8,7 @@
 // information for each value in the unique integer to be sorted
 typedef struct s_node
 {
-	long				value;
+	long			value;
 	int				current_position;
 	bool			upper_half;
 	int				final_position;
@@ -38,7 +38,7 @@ typedef struct s_data
 
 
 void	malloc_check(t_stack *stack_a, t_stack *stack_b, t_data *data);
-t_node	*create_node(int value, int position);
+t_node	*create_node(long value, int position);
 void	add_node_to_stack(t_stack *stack, t_node *new_node);
 void	handle_error(t_stack *stack, t_data *data);
 void	free_stack(t_stack *stack);
@@ -62,6 +62,7 @@ void	target_in_a(t_stack *stack_a, t_stack *stack_b);
 void	sort_three(t_stack *stack);
 void	determine_costs_both(t_stack *outbound_stack, t_stack *inbound_stack, t_node *current_node);
 void	determine_costs_ind(t_stack *outbound_stack, t_stack *inbound_stack, t_node *current_node);
+int		sim_rotations(int current_node_position, int target_node_position, int count);
 // OPERATIONS
 void    sa(t_stack *stack_a, int print);
 void    sb(t_stack *stack_b, int print);

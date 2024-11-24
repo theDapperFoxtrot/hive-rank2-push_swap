@@ -1,7 +1,5 @@
 #include "push_swap.h"
 
-#include <stdio.h>
-
 void	malloc_check(t_stack *stack_a, t_stack *stack_b, t_data *data)
 {
 	if (!stack_a || !stack_b)

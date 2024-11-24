@@ -6,7 +6,7 @@ static void sort_more(t_stack *stack_a, t_stack *stack_b)
 		pb(stack_a, stack_b);
 	if (!is_sorted(stack_a) && stack_a->node_count > 3)
 		pb(stack_a, stack_b);
-	while (!is_sorted(stack_a) && stack_a->node_count > 3)
+	while (!is_sorted(stack_a) && stack_a->node_count != 3)
 	{
 		target_in_b(stack_a, stack_b);
 		push_cheapest_to_b(stack_a, stack_b);
@@ -28,9 +28,9 @@ static void sort_more(t_stack *stack_a, t_stack *stack_b)
 
 void	sort_three(t_stack *stack)
 {
-	int		first;
-	int		second;
-	int		third;
+	long		first;
+	long		second;
+	long		third;
 
 	first = stack->first_node->value;
 	second = stack->first_node->next->value;

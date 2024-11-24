@@ -7,7 +7,7 @@ int	is_sorted(t_stack *stack)
 	if (!stack->node_count)
 		return (1);
 	iterator = stack->first_node;
-	while (iterator)
+	while (iterator && iterator->next)
 	{
 		if (iterator->value > iterator->next->value)
 			return (0);
@@ -24,20 +24,12 @@ void	push_cheapest_to_b(t_stack *stack_a, t_stack *stack_b)
 	determine_costs(stack_a, stack_b);
 	cheapest = cheapest_node(stack_a);
 	target = cheapest->target;
-	if (cheapest->upper_half && target->upper_half)
-		while (cheapest->current_position != 0 || target->current_position != 0)
-		{
-			rr(stack_a, stack_b);
-			if (cheapest->current_position == 0 || target->current_position == 0)
-				break ;
-		}
-	else if (!cheapest->upper_half && !target->upper_half)
-		while (cheapest->current_position != 0 || target->current_position != 0)
-		{
-			rrr(stack_a, stack_b);
-			if (cheapest->current_position == 0 || target->current_position == 0)
-				break ;
-		}
+	// if (cheapest->upper_half && target->upper_half)
+	// 	while (cheapest->current_position != 0 && target->current_position != 0)
+	// 		rr(stack_a, stack_b);
+	// else if (!cheapest->upper_half && !target->upper_half)
+	// 	while (cheapest->current_position != 0 && target->current_position != 0)
+	// 		rrr(stack_a, stack_b);
 	while (cheapest->current_position != 0)
 	{
 		if (cheapest->upper_half)
@@ -57,12 +49,28 @@ void	push_cheapest_to_b(t_stack *stack_a, t_stack *stack_b)
 
 void push_cheapest_to_a(t_stack *stack_a, t_stack *stack_b)
 {
-	t_node	*current;
+	t_node	*cheapest;
+	t_node	*target;
 
-	current = stack_b->first_node;
-	while (current->target->current_position != 0)
+	determine_costs(stack_b, stack_a);
+	cheapest = cheapest_node(stack_b);
+	target = cheapest->target;
+	// if (cheapest->upper_half && target->upper_half)
+	// 	while (cheapest->current_position != 0 && target->current_position != 0)
+	// 		rr(stack_a, stack_b);
+	// else if (!cheapest->upper_half && !target->upper_half)
+	// 	while (cheapest->current_position != 0 && target->current_position != 0)
+	// 		rrr(stack_a, stack_b);
+	while (cheapest->current_position != 0)
 	{
-		if (current->target->upper_half)
+		if (cheapest->upper_half)
+			rb(stack_b, 0);
+		else
+			rrb(stack_b, 0);
+	}
+	while (target->current_position != 0)
+	{
+		if (target->upper_half)
 			ra(stack_a, 0);
 		else
 			rra(stack_a, 0);
@@ -70,7 +78,6 @@ void push_cheapest_to_a(t_stack *stack_a, t_stack *stack_b)
 	pa(stack_a, stack_b);
 }
 
-// REMEMBER THIS NEEDS TO BE CALLED TWICE FOR NODE ITSELF AND TARGET NODE (ADD TOGETHER FOR TOTAL COST)
 void determine_costs(t_stack *outbound_stack, t_stack *inbound_stack)
 {
 	t_node	*current_node;

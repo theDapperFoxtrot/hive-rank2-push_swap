@@ -51,8 +51,7 @@ void    pa(t_stack *stack_a, t_stack *stack_b)
 	}
 	stack_a->node_count++; //increment node count in stack b
 	stack_b->node_count--; //decrement node count in stack a
-	upper_half_true_false(stack_a);
-	upper_half_true_false(stack_b);
+	is_upper_half(stack_a, stack_b);
 	find_new_min_max(stack_a, stack_b);
 	ft_putstr_fd("pa\n", 1);
 }
