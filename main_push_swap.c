@@ -19,19 +19,12 @@ int	main(int argc, char **argv)
 	t_data	data;
 
 	data.argc = argc;
-	data.sorted_array = (long *)malloc(data.argc * sizeof(long));
-	if (data.sorted_array == NULL)
-	{
-    ft_putstr_fd("Error: Memory allocation failed for sorted_array\n", 2);
-    exit(1);
-	}
 	malloc_check(stack_a, stack_b, &data);
 	if ((argc == 1) || (argc == 2 && !argv[1][0]))
 		return (1);
 	set_default_values(stack_a, stack_b, argv, &data);
 	init_stack(stack_a, &data);
 	make_moves(stack_a, stack_b);
-	free(data.sorted_array);
     free_stack(stack_a);
     free_stack(stack_b);
 	free_argv(&data);
