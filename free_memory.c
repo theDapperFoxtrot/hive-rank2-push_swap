@@ -17,12 +17,11 @@ void	free_stack(t_stack *stack)
 	t_node *current = stack->first_node;
 	t_node *next;
 
-	while (current != NULL)
+	while (current)
 	{
-		next = current->next;
-		// printf("free %p\n", current);
+		next = current->next;  // Store the next node
 		free(current);  // Free the current node
-		current = next;
+		current = next;  // Move to the next node
 	}
 	free(stack);  // Free the stack structure
 }

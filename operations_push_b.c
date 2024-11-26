@@ -28,6 +28,11 @@ static void move_node(t_stack *stack_b, t_node *temp_node_1)
 		stack_b->first_node = temp_node_1; //first node in stack b is now first node in stack a
 		stack_b->first_node->next = temp_node_2; //next of first node in stack b is now second node in stack b
 		temp_node_2->previous = stack_b->first_node; //previous of second node in stack b is now first node in stack b
+		while (temp_node_2->next)
+		{
+			temp_node_2->next->previous = temp_node_2; //previous of next node is now current node
+			temp_node_2 = temp_node_2->next; //move to next node
+		}
 	}
 }
 

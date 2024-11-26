@@ -49,9 +49,18 @@ void	push_cheapest_to_b(t_stack *stack_a, t_stack *stack_b)
 
 void push_cheapest_to_a(t_stack *stack_a, t_stack *stack_b)
 {
+	t_node	*cheapest;
 	t_node	*target;
 
-	target = stack_b->first_node->target;
+	determine_costs(stack_b, stack_a);
+	cheapest = cheapest_node(stack_b);
+	target = cheapest->target;
+	if (cheapest->upper_half && target->upper_half)
+		while (cheapest->current_position != 0 && target->current_position != 0)
+			rr(stack_a, stack_b);
+	else if (!cheapest->upper_half && !target->upper_half)
+		while (cheapest->current_position != 0 && target->current_position != 0)
+			rrr(stack_a, stack_b);
 	while (target->current_position != 0)
 	{
 		if (target->upper_half)
