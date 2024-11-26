@@ -56,7 +56,6 @@ void	init_stack(t_stack *stack, t_data *data)
 			handle_error(stack, data);
 		if (is_duplicate(stack, number))
 			handle_error(stack, data);
-		data->sorted_array[position] = number;
 		add_node_to_stack(stack, create_node(number, position));
 		position++;
 		i++;

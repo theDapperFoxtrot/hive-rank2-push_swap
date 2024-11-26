@@ -11,8 +11,6 @@ typedef struct s_node
 	long			value;
 	int				current_position;
 	bool			upper_half;
-	int				final_position;
-	int				pre_sorted;
 	long			cost;
 	int				dub_rot;
 	struct s_node	*target;
@@ -34,7 +32,6 @@ typedef struct s_data
 {
 	int		argc;
 	char	**argv;
-	long	*sorted_array;
 }	t_data;
 
 
@@ -48,7 +45,6 @@ void	set_default_values(t_stack *stack_a, t_stack *stack_b, char **argv, t_data 
 int		syntax_error(char *str);
 int		is_duplicate(t_stack *stack, long value);
 void	init_stack(t_stack *stack, t_data *data);
-void	sorting(t_stack *stack_a, t_stack *stack_b, t_data *data);
 void	is_upper_half(t_stack *stack_a, t_stack *stack_b);
 void	upper_half_true_false(t_stack *stack);
 void	make_moves(t_stack *stack_a, t_stack *stack_b);

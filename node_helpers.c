@@ -9,7 +9,6 @@ t_node *create_node(long value, int position)
 	new_node->value = value;
 	new_node->current_position = position;
 	new_node->upper_half = false;
-	new_node->final_position = 0;
 	new_node->next = NULL;
 	new_node->previous = NULL;
 	return new_node;

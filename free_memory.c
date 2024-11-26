@@ -30,7 +30,7 @@ void	free_argv(t_data *data)
 {
 	int i;
 
-	i = 1;
+	i = 0;
 	if (data->argc == 2)
 	{
 		while (data->argv[i])

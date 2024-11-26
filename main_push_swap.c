@@ -30,7 +30,6 @@ int	main(int argc, char **argv)
 		return (1);
 	set_default_values(stack_a, stack_b, argv, &data);
 	init_stack(stack_a, &data);
-	sorting(stack_a, stack_b, &data);
 	make_moves(stack_a, stack_b);
 	free(data.sorted_array);
     free_stack(stack_a);
