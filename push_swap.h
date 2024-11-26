@@ -14,6 +14,7 @@ typedef struct s_node
 	int				final_position;
 	int				pre_sorted;
 	long			cost;
+	int				dub_rot;
 	struct s_node	*target;
 	struct s_node	*next;
 	struct s_node	*previous;
@@ -62,7 +63,7 @@ void	target_in_a(t_stack *stack_a, t_stack *stack_b);
 void	sort_three(t_stack *stack);
 void	determine_costs_both(t_stack *outbound_stack, t_stack *inbound_stack, t_node *current_node);
 void	determine_costs_ind(t_stack *outbound_stack, t_stack *inbound_stack, t_node *current_node);
-int		sim_rotations(int current_node_position, int target_node_position, int count);
+int		sim_rotations(t_node *current_node, int current_node_position, int target_node_position, int count);\
 // OPERATIONS
 void    sa(t_stack *stack_a, int print);
 void    sb(t_stack *stack_b, int print);

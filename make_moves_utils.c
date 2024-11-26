@@ -24,12 +24,12 @@ void	push_cheapest_to_b(t_stack *stack_a, t_stack *stack_b)
 	determine_costs(stack_a, stack_b);
 	cheapest = cheapest_node(stack_a);
 	target = cheapest->target;
-	// if (cheapest->upper_half && target->upper_half)
-	// 	while (cheapest->current_position != 0 && target->current_position != 0)
-	// 		rr(stack_a, stack_b);
-	// else if (!cheapest->upper_half && !target->upper_half)
-	// 	while (cheapest->current_position != 0 && target->current_position != 0)
-	// 		rrr(stack_a, stack_b);
+	if (cheapest->upper_half && target->upper_half)
+		while (cheapest->dub_rot--)
+			rr(stack_a, stack_b);
+	else if (!cheapest->upper_half && !target->upper_half)
+		while (cheapest->dub_rot--)
+			rrr(stack_a, stack_b);
 	while (cheapest->current_position != 0)
 	{
 		if (cheapest->upper_half)

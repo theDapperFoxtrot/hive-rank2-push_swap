@@ -65,12 +65,12 @@ void	determine_costs_both(t_stack *outbound_stack, t_stack *inbound_stack, t_nod
 	target_node_position = current_node->target->current_position;
 	count = 0;
 	if (current_node->upper_half && current_node->target->upper_half)
-		count = sim_rotations(current_node_position, target_node_position, count);
+		count = sim_rotations(current_node, current_node_position, target_node_position, count);
 	else if (!current_node->upper_half && !current_node->target->upper_half)
 	{
 		current_node_position = outbound_stack->node_count - current_node_position;
 		target_node_position = inbound_stack->node_count - target_node_position;
-		count = sim_rotations(current_node_position, target_node_position, count);
+		count = sim_rotations(current_node, current_node_position, target_node_position, count);
 	}
 	current_node->cost = count;
 }
