@@ -6,7 +6,7 @@ void handle_error(t_stack *stack, t_data *data)
 {
 	if (stack)
 		free_stack(stack);
-	error_free_argv(data);
+	free_argv(data);
 	ft_putstr_fd("Error\n", 2);
 	exit(1);
 	// Additional error handling (e.g., print error message)
@@ -26,11 +26,11 @@ void	free_stack(t_stack *stack)
 	free(stack);  // Free the stack structure
 }
 
-void	error_free_argv(t_data *data)
+void	free_argv(t_data *data)
 {
 	int i;
 
-	i = 0;
+	i = 1;
 	if (data->argc == 2)
 	{
 		while (data->argv[i])

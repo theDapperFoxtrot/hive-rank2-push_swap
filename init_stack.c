@@ -2,21 +2,24 @@
 
 int	syntax_error(char *str)
 {
-	while (*str)
+	int	i;
+
+	i = 0;
+	while (str[i])
 	{
-		if (!(*str == '-' || *str == '+' || (*str >= '0' && *str <= '9')))
+		if (!(str[i] == '-' || str[i] == '+' || (str[i] >= '0' && str[i] <= '9')))
 			return (1);
-		if ((*str == '-' || *str == '+'))
+		if ((str[i] == '-' || str[i] == '+'))
 		{
-			str++;
-			if (!(*str >= '0' && *str <= '9'))
+			i++;
+			if (!(str[i] >= '0' && str[i] <= '9'))
 				return (1);
 		}
-		while (*str)
+		while (str[i])
 		{
-			if (!(*str >= '0' && *str <= '9'))
+			if (!(str[i] >= '0' && str[i] <= '9'))
 				return (1);
-			str++;
+			i++;
 		}
 	}
 	return (0);
@@ -53,7 +56,7 @@ void	init_stack(t_stack *stack, t_data *data)
 			handle_error(stack, data);
 		if (is_duplicate(stack, number))
 			handle_error(stack, data);
-		data->sorted_array[position] = (int) number;
+		data->sorted_array[position] = number;
 		add_node_to_stack(stack, create_node(number, position));
 		position++;
 		i++;

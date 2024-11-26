@@ -34,7 +34,7 @@ typedef struct s_data
 {
 	int		argc;
 	char	**argv;
-	int		*sorted_array;
+	long	*sorted_array;
 }	t_data;
 
 
@@ -43,7 +43,7 @@ t_node	*create_node(long value, int position);
 void	add_node_to_stack(t_stack *stack, t_node *new_node);
 void	handle_error(t_stack *stack, t_data *data);
 void	free_stack(t_stack *stack);
-void	error_free_argv(t_data *data);
+void	free_argv(t_data *data);
 void	set_default_values(t_stack *stack_a, t_stack *stack_b, char **argv, t_data *data);
 int		syntax_error(char *str);
 int		is_duplicate(t_stack *stack, long value);

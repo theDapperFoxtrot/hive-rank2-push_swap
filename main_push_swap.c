@@ -19,7 +19,7 @@ int	main(int argc, char **argv)
 	t_data	data;
 
 	data.argc = argc;
-	data.sorted_array = (int *)malloc(data.argc * sizeof(int));
+	data.sorted_array = (long *)malloc(data.argc * sizeof(long));
 	if (data.sorted_array == NULL)
 	{
     ft_putstr_fd("Error: Memory allocation failed for sorted_array\n", 2);
@@ -28,8 +28,6 @@ int	main(int argc, char **argv)
 	malloc_check(stack_a, stack_b, &data);
 	if ((argc == 1) || (argc == 2 && !argv[1][0]))
 		return (1);
-	if (argc == 2)
-			data.argv = ft_split(argv[1], ' ');
 	set_default_values(stack_a, stack_b, argv, &data);
 	init_stack(stack_a, &data);
 	sorting(stack_a, stack_b, &data);
@@ -37,6 +35,6 @@ int	main(int argc, char **argv)
 	free(data.sorted_array);
     free_stack(stack_a);
     free_stack(stack_b);
-	error_free_argv(&data);
+	free_argv(&data);
 	return (0);
 }
