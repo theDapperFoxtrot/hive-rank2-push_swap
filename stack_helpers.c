@@ -1,6 +1,7 @@
 #include "push_swap.h"
 
-void	set_default_values(t_stack *stack_a, t_stack *stack_b, char **argv, t_data *data)
+void	set_default_values(t_stack *stack_a, t_stack *stack_b, \
+	char **argv, t_data *data)
 {
 	if (data->argc == 2)
 	{

@@ -7,7 +7,8 @@ int	syntax_error(char *str)
 	i = 0;
 	while (str[i])
 	{
-		if (!(str[i] == '-' || str[i] == '+' || (str[i] >= '0' && str[i] <= '9')))
+		if (!(str[i] == '-' || str[i] == '+' || \
+			(str[i] >= '0' && str[i] <= '9')))
 			return (1);
 		if ((str[i] == '-' || str[i] == '+'))
 		{
@@ -27,8 +28,9 @@ int	syntax_error(char *str)
 
 int	is_duplicate(t_stack *stack, long value)
 {
-	t_node *current = stack->first_node;
+	t_node	*current;
 
+	current = stack->first_node;
 	while (current != NULL)
 	{
 		if (current->value == value)
@@ -40,9 +42,9 @@ int	is_duplicate(t_stack *stack, long value)
 
 void	init_stack(t_stack *stack, t_data *data)
 {
-	long	number;
-	int		i;
 	int		position;
+	int		i;
+	long	number;
 
 	position = 0;
 	if (data->argc == 2)

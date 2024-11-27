@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-static void sort_more(t_stack *stack_a, t_stack *stack_b)
+static void	sort_more(t_stack *stack_a, t_stack *stack_b)
 {
 	if (!is_sorted(stack_a) && stack_a->node_count > 3)
 		pb(stack_a, stack_b);
@@ -55,9 +55,14 @@ void	sort_three(t_stack *stack)
 	}
 }
 
-void make_moves(t_stack *stack_a, t_stack *stack_b)
+void	make_moves(t_stack *stack_a, t_stack *stack_b)
 {
-	if (stack_a->node_count == 2 && stack_a->first_node->value > stack_a->last_node->value)
+	long	first_node;
+	long	last_node;
+
+	first_node = stack_a->first_node->value;
+	last_node = stack_a->last_node->value;
+	if (stack_a->node_count == 2 && first_node > last_node)
 		sa(stack_a, 0);
 	else if (stack_a->node_count == 3)
 		sort_three(stack_a);

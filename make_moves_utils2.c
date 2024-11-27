@@ -14,7 +14,8 @@ void	target_in_b(t_stack *stack_a, t_stack *stack_b)
 		target_value = LONG_MIN;
 		while (current_node_b)
 		{
-			if (current_node_b->value < current_node_a->value && current_node_b->value > target_value)
+			if (current_node_b->value < current_node_a->value && \
+				current_node_b->value > target_value)
 			{
 				target_node = current_node_b;
 				target_value = current_node_b->value;
@@ -28,7 +29,7 @@ void	target_in_b(t_stack *stack_a, t_stack *stack_b)
 	}
 }
 
-void target_in_a(t_stack *stack_a, t_stack *stack_b)
+void	target_in_a(t_stack *stack_a, t_stack *stack_b)
 {
 	t_node	*current_node_a;
 	t_node	*current_node_b;
@@ -42,7 +43,8 @@ void target_in_a(t_stack *stack_a, t_stack *stack_b)
 		target_value = LONG_MAX;
 		while (current_node_a)
 		{
-			if (current_node_a->value > current_node_b->value && current_node_a->value < target_value)
+			if (current_node_a->value > current_node_b->value && \
+				current_node_a->value < target_value)
 			{
 				target_node = current_node_a;
 				target_value = current_node_a->value;
@@ -55,7 +57,9 @@ void target_in_a(t_stack *stack_a, t_stack *stack_b)
 		current_node_b = current_node_b->next;
 	}
 }
-void	determine_costs_both(t_stack *outbound_stack, t_stack *inbound_stack, t_node *current_node)
+
+void	determine_costs_both(t_stack *outbound_stack, \
+		t_stack *inbound_stack, t_node *current_node)
 {
 	int	current_node_position;
 	int	target_node_position;
@@ -65,26 +69,44 @@ void	determine_costs_both(t_stack *outbound_stack, t_stack *inbound_stack, t_nod
 	target_node_position = current_node->target->current_position;
 	count = 0;
 	if (current_node->upper_half && current_node->target->upper_half)
-		count = sim_rotations(current_node, current_node_position, target_node_position, count);
+		count = sim_rotations(current_node, \
+			current_node_position, target_node_position, count);
 	else if (!current_node->upper_half && !current_node->target->upper_half)
 	{
-		current_node_position = outbound_stack->node_count - current_node_position;
-		target_node_position = inbound_stack->node_count - target_node_position;
-		count = sim_rotations(current_node, current_node_position, target_node_position, count);
+		current_node_position = \
+			outbound_stack->node_count - current_node_position;
+		target_node_position = \
+			inbound_stack->node_count - target_node_position;
+		count = sim_rotations(current_node, \
+			current_node_position, target_node_position, count);
 	}
 	current_node->cost = count;
 }
 
-void	determine_costs_ind(t_stack *outbound_stack, t_stack *inbound_stack, t_node *current_node)
+void	determine_costs_ind(t_stack *outbound_stack, \
+		t_stack *inbound_stack, t_node *current_node)
 {
-		if (current_node->upper_half && !current_node->target->upper_half)
-		{
-			current_node->cost = current_node->current_position;
-			current_node->cost += inbound_stack->node_count - current_node->target->current_position;
-		}
-		else if (!current_node->upper_half && current_node->target->upper_half)
-		{
-			current_node->cost = outbound_stack->node_count - current_node->current_position;
-			current_node->cost += current_node->target->current_position;
-		}
+	if (current_node->upper_half && !current_node->target->upper_half)
+	{
+		current_node->cost = current_node->current_position;
+		current_node->cost += \
+			inbound_stack->node_count - current_node->target->current_position;
+	}
+	else if (!current_node->upper_half && current_node->target->upper_half)
+	{
+		current_node->cost = \
+			outbound_stack->node_count - current_node->current_position;
+		current_node->cost += current_node->target->current_position;
+	}
+}
+
+void	handle_double_rots(t_stack *stack_a, \
+	t_stack *stack_b, t_node *cheapest, t_node *target)
+{
+	if (cheapest->upper_half && target->upper_half)
+		while (cheapest->dub_rot--)
+			rr(stack_a, stack_b);
+	else if (!cheapest->upper_half && !target->upper_half)
+		while (cheapest->dub_rot--)
+			rrr(stack_a, stack_b);
 }

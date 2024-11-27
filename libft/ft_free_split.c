@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_free_split.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thedapperfoxtrot <thedapperfoxtrot@stud    +#+  +:+       +#+        */
+/*   By: smishos <smishos@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 21:06:10 by thedapperfo       #+#    #+#             */
-/*   Updated: 2024/10/13 21:06:27 by thedapperfo      ###   ########.fr       */
+/*   Updated: 2024/11/27 15:13:31 by smishos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
