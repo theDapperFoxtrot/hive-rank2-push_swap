@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thedapperfoxtrot <thedapperfoxtrot@stud    +#+  +:+       +#+        */
+/*   By: smishos <smishos@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 09:04:27 by smishos           #+#    #+#             */
-/*   Updated: 2024/10/12 22:39:40 by thedapperfo      ###   ########.fr       */
+/*   Updated: 2024/11/28 17:18:15 by smishos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
