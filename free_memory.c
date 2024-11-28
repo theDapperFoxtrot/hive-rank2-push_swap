@@ -9,7 +9,7 @@ void	handle_error(t_stack *stack_a, t_stack *stack_b, t_data *data)
 	if (stack_b)
 		free_stack(stack_b);
 	if (data->argv != NULL)
-	free_argv(data);
+		free_argv(data);
 	ft_putstr_fd("Error\n", 2);
 	exit(1);
 }
