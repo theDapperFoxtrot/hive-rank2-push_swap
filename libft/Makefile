@@ -11,6 +11,7 @@ SRCS = ft_atoi.c \
 	ft_isdigit.c \
 	ft_isprint.c \
 	ft_is_input_int.c \
+	ft_isspace.c \
 	ft_itoa.c \
 	ft_memchr.c \
 	ft_memcmp.c \
@@ -54,7 +55,7 @@ RM = rm -rf
 LIB = ranlib
 
 CC = cc
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -g
 
 OBJS = ${SRCS:.c=.o}
 

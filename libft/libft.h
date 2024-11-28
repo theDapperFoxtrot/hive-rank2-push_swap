@@ -6,7 +6,7 @@
 /*   By: smishos <smishos@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 14:41:05 by smishos           #+#    #+#             */
-/*   Updated: 2024/11/28 17:26:48 by smishos          ###   ########.fr       */
+/*   Updated: 2024/11/28 18:16:46 by smishos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int			ft_isascii(int c);
 int			ft_isdigit(int c);
 int			ft_isprint(int c);
 int			ft_is_input_int(const char *str, int *number);
+int			ft_isspace(int c);
 char		*ft_itoa(int n);
 void		ft_lstadd_back(t_list **lst, t_list *new);
 void		ft_lstadd_front(t_list **lst, t_list *new);

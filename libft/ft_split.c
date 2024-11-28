@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thedapperfoxtrot <thedapperfoxtrot@stud    +#+  +:+       +#+        */
+/*   By: smishos <smishos@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 16:28:49 by smishos           #+#    #+#             */
-/*   Updated: 2024/10/13 19:39:58 by thedapperfo      ###   ########.fr       */
+/*   Updated: 2024/11/28 18:50:35 by smishos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,10 @@ static int	count_substrings(const char *str, char c)
 	in_substring = 0;
 	while (*str)
 	{
+		while (*str == c)
+			str++;
+		if (*str == '\0')
+			continue ;
 		if (*str != c && in_substring == 0)
 		{
 			in_substring = 1;
@@ -98,6 +102,10 @@ char	**ft_split(char const *s, char c)
 	if (!s)
 		return (NULL);
 	count = count_substrings(s, c);
+	if (count == 0)
+	{
+		return (NULL);
+	}
 	result = (char **)malloc((count + 1) * sizeof(char *));
 	if (!result)
 		return (NULL);

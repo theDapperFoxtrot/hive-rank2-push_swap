@@ -8,6 +8,7 @@ void	handle_error(t_stack *stack_a, t_stack *stack_b, t_data *data)
 		free_stack(stack_a);
 	if (stack_b)
 		free_stack(stack_b);
+	if (data->argv != NULL)
 	free_argv(data);
 	ft_putstr_fd("Error\n", 2);
 	exit(1);
@@ -23,9 +24,11 @@ void	free_stack(t_stack *stack)
 	{
 		next = current->next;
 		free(current);
+		current = NULL;
 		current = next;
 	}
 	free(stack);
+	stack = NULL;
 }
 
 void	free_argv(t_data *data)
