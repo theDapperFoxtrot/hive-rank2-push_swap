@@ -50,7 +50,6 @@ void	push_cheapest_to_a(t_stack *stack_a, t_stack *stack_b)
 	determine_costs(stack_b, stack_a);
 	cheapest = cheapest_node(stack_b);
 	target = cheapest->target;
-	handle_double_rots(stack_a, stack_b, cheapest, target);
 	while (target->current_position != 0)
 	{
 		if (target->upper_half)
