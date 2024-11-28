@@ -40,7 +40,7 @@ int	is_duplicate(t_stack *stack, long value)
 	return (0);
 }
 
-void	init_stack(t_stack *stack, t_data *data)
+void	init_stack(t_stack *stack_a, t_stack *stack_b, t_data *data)
 {
 	int		position;
 	int		i;
@@ -54,11 +54,13 @@ void	init_stack(t_stack *stack, t_data *data)
 	while (data->argv[i])
 	{
 		number = ft_atol(data->argv[i]);
+		if (number > INT_MAX || number < INT_MIN)
+			handle_error(stack_a, stack_b, data);
 		if (syntax_error(data->argv[i]))
-			handle_error(stack, data);
-		if (is_duplicate(stack, number))
-			handle_error(stack, data);
-		add_node_to_stack(stack, create_node(number, position));
+			handle_error(stack_a, stack_b, data);
+		if (is_duplicate(stack_a, number))
+			handle_error(stack_a, stack_b, data);
+		add_node_to_stack(stack_a, create_node(number, position));
 		position++;
 		i++;
 	}

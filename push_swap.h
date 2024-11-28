@@ -5,7 +5,6 @@
 # include <stdbool.h>
 # include <limits.h>
 
-// information for each value in the unique integer to be sorted
 typedef struct s_node
 {
 	long			value;
@@ -33,23 +32,24 @@ typedef struct s_data
 	int		argc;
 	char	**argv;
 }	t_data;
+
 void	malloc_check(t_stack *stack_a, t_stack *stack_b, t_data *data);
 t_node	*create_node(long value, int position);
 void	add_node_to_stack(t_stack *stack, t_node *new_node);
-void	handle_error(t_stack *stack, t_data *data);
+void	handle_error(t_stack *stack_a, t_stack *stack_b, t_data *data);
 void	free_stack(t_stack *stack);
 void	free_argv(t_data *data);
 void	set_default_values(t_stack *stack_a, t_stack *stack_b, \
 		char **argv, t_data *data);
 int		syntax_error(char *str);
 int		is_duplicate(t_stack *stack, long value);
-void	init_stack(t_stack *stack, t_data *data);
+void	init_stack(t_stack *stack_a, t_stack *stack_b, t_data *data);
 void	is_upper_half(t_stack *stack_a, t_stack *stack_b);
 void	upper_half_true_false(t_stack *stack);
 void	make_moves(t_stack *stack_a, t_stack *stack_b);
 void	push_cheapest_to_b(t_stack *a, t_stack *b);
 void	handle_double_rots(t_stack *stack_a, \
-	t_stack *stack_b, t_node *cheapest, t_node *target);
+		t_stack *stack_b, t_node *cheapest, t_node *target);
 void	push_cheapest_to_a(t_stack *a, t_stack *b);
 int		is_sorted(t_stack *stack);
 void	determine_costs(t_stack *stack_a, t_stack *stack_b);
@@ -64,7 +64,6 @@ void	determine_costs_ind(t_stack *outbound_stack, \
 		t_stack *inbound_stack, t_node *current_node);
 int		sim_rotations(t_node *current_node, int current_node_position, \
 		int target_node_position, int count);
-// OPERATIONS
 void	sa(t_stack *stack_a, int print);
 void	sb(t_stack *stack_b, int print);
 void	ss(t_stack *stack_a, t_stack *stack_b);

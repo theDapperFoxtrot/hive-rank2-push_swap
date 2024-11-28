@@ -2,10 +2,12 @@
 
 #include <stdio.h>
 
-void	handle_error(t_stack *stack, t_data *data)
+void	handle_error(t_stack *stack_a, t_stack *stack_b, t_data *data)
 {
-	if (stack)
-		free_stack(stack);
+	if (stack_a)
+		free_stack(stack_a);
+	if (stack_b)
+		free_stack(stack_b);
 	free_argv(data);
 	ft_putstr_fd("Error\n", 2);
 	exit(1);
