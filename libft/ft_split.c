@@ -6,7 +6,7 @@
 /*   By: smishos <smishos@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 16:28:49 by smishos           #+#    #+#             */
-/*   Updated: 2024/11/28 18:50:35 by smishos          ###   ########.fr       */
+/*   Updated: 2024/11/28 19:39:23 by smishos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,10 @@ static int	count_substrings(const char *str, char c)
 
 	count = 0;
 	in_substring = 0;
+	while (*str == c)
+		str++;
 	while (*str)
 	{
-		while (*str == c)
-			str++;
-		if (*str == '\0')
-			continue ;
 		if (*str != c && in_substring == 0)
 		{
 			in_substring = 1;
