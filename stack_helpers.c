@@ -7,7 +7,7 @@ void	set_default_values(t_stack *stack_a, t_stack *stack_b, \
 	{
 		data->argv = ft_split(argv[1], ' ');
 		if (data->argv == NULL)
-			handle_error(stack_a, data);
+			handle_error(stack_a, stack_b, data);
 	}
 	else
 		data->argv = argv;
