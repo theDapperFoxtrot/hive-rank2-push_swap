@@ -4,7 +4,11 @@ void	sa(t_stack *stack_a, int print)
 {
 	t_node	*temp_node1;
 	t_node	*temp_node2;
+	t_node	*temp_node3;
 
+	temp_node3 = stack_a->first_node->next->next;
+	if (stack_a->node_count > 2)
+		temp_node3->previous = stack_a->first_node;
 	temp_node1 = stack_a->first_node;
 	temp_node2 = stack_a->first_node->next;
 	temp_node1->previous = stack_a->first_node->next;
@@ -25,7 +29,11 @@ void	sb(t_stack *stack_b, int print)
 {
 	t_node	*temp_node1;
 	t_node	*temp_node2;
+	t_node	*temp_node3;
 
+	temp_node3 = stack_b->first_node->next->next;
+	if (stack_b->node_count > 2)
+		temp_node3->previous = stack_b->first_node;
 	temp_node1 = stack_b->first_node;
 	temp_node2 = stack_b->first_node->next;
 	temp_node1->previous = stack_b->first_node->next;
