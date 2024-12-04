@@ -56,25 +56,6 @@ void	sort_three(t_stack *stack)
 	}
 }
 
-void	sort_five(t_stack *stack_a, t_stack *stack_b)
-{
-	pb(stack_a, stack_b);
-	pb(stack_a, stack_b);
-	sort_three(stack_a);
-	while (stack_b->node_count != 0)
-	{
-		target_in_a(stack_a, stack_b);
-		push_cheapest_to_a(stack_a, stack_b);
-	}
-	while (stack_a->min->current_position != 0)
-	{
-		if (stack_a->min->upper_half)
-			ra(stack_a, 0);
-		else
-			rra(stack_a, 0);
-	}
-}
-
 void	make_moves(t_stack *stack_a, t_stack *stack_b)
 {
 	long	first_node;
@@ -86,8 +67,6 @@ void	make_moves(t_stack *stack_a, t_stack *stack_b)
 		sa(stack_a, 0);
 	else if (stack_a->node_count == 3)
 		sort_three(stack_a);
-	else if (stack_a->node_count == 5)
-		sort_five(stack_a, stack_b);
 	else
 		sort_more(stack_a, stack_b);
 }
